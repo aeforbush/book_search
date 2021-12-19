@@ -19,7 +19,7 @@ const routes = require('./routes');
 
 // express server
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3006;
 
 // apollo server
 const startServer = async () => {
@@ -63,6 +63,6 @@ app.use(routes);
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`🌍 Now listening on localhost:${PORT}`);
-  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  // console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
