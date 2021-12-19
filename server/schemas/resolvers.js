@@ -1,5 +1,5 @@
 // serve the response for the query here
-const { User, Book } = require("../models");
+const { User } = require("../models");
 // built in error handling
 const { AuthenticationError } = require("apollo-server-express");
 // import signToken function
@@ -9,7 +9,7 @@ const resolvers = {
   Query: {
     me: async (context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context._id }).select(
+        const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
         return userData;
@@ -52,7 +52,7 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: { bookId: bookId } } },
+          { $pull: { savedBooks: { bookId: args.bookId } } },
           { new: true }
         );
         return updatedUser;
