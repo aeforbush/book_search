@@ -1,17 +1,17 @@
 const express = require("express");
-const path = require("path");
-
-// to use Playground
-const {
-  ApolloServerPluginLandingPageGraphQLPlayground,
-} = require("apollo-server-core");
 // install Apollo server
 const { ApolloServer } = require("apollo-server-express");
+const path = require("path");
 
 // import typeDefs and resolvers
 const { typeDefs, resolvers } = require("./schemas");
 // import middleware
 const { authMiddleware } = require("./utils/auth");
+
+// to use Playground
+const {
+  ApolloServerPluginLandingPageGraphQLPlayground,
+} = require("apollo-server-core");
 
 // db connection
 const db = require("./config/connection");
@@ -19,11 +19,11 @@ const db = require("./config/connection");
 // const routes = require('./routes');
 
 // express server
-const app = express();
 const PORT = process.env.PORT || 3006;
+const app = express();
 
 // apollo server
-const startServer = async () => {
+const startApolloServer = async () => {
   // create a new Apollo server and pass in our schema data
   const server = new ApolloServer({
     typeDefs,
@@ -43,7 +43,7 @@ const startServer = async () => {
 };
 
 // initialize the apollo server
-startServer();
+startApolloServer();
 
 // middleware parsing
 app.use(express.urlencoded({ extended: true }));
