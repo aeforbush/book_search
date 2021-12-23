@@ -1,4 +1,9 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SearchBooks from "./pages/SearchBooks";
+import SavedBooks from "./pages/SavedBooks";
+import Navbar from "./components/Navbar";
+
 // Provider sends data to all other components, Client is a constructor function/connect to GraphQL server, Cache response data for efficiency, Link controls how Client makes a req
 import {
   ApolloProvider,
@@ -6,25 +11,19 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-
 //  retrieve token from localStorage and include it with each API request
 import { setContext } from "@apollo/client/link/context";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchBooks from "./pages/SearchBooks";
-import SavedBooks from "./pages/SavedBooks";
-import Navbar from "./components/Navbar";
 
 // this creates graphql endpoint
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
-const authLink = setContext((_, { header }) => {
+const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
     headers: {
-      ...header,
+      ...headers,
       authorization: token ? `Bearer ${token}` : "",
     },
   };
