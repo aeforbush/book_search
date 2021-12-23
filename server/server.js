@@ -10,9 +10,9 @@ const { typeDefs, resolvers } = require("./schemas");
 
 
 // to use Playground
-const {
-  ApolloServerPluginLandingPageGraphQLPlayground,
-} = require("apollo-server-core");
+// const {
+//   ApolloServerPluginLandingPageGraphQLPlayground,
+// } = require("apollo-server-core");
 
 // db connection
 const db = require("./config/connection");
@@ -29,7 +29,6 @@ const startApolloServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
     context: authMiddleware,
   });
 
