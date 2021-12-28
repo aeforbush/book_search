@@ -20,7 +20,7 @@ const db = require("./config/connection");
 // const routes = require('./routes');
 
 // express server
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // apollo server
