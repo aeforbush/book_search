@@ -8,42 +8,21 @@ const path = require("path");
 // import typeDefs and resolvers
 const { typeDefs, resolvers } = require("./schemas");
 
-
-// to use Playground
-// const {
-//   ApolloServerPluginLandingPageGraphQLPlayground,
-// } = require("apollo-server-core");
-
 // db connection
 const db = require("./config/connection");
-
-// const routes = require('./routes');
 
 // express server
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 // apollo server
-// const startApolloServer = async () => {
-  // create a new Apollo server and pass in our schema data
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    // context: authMiddleware,
-  });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
-  // start the apollo server
-  // await server.start();
-
-  // integrate our Apollo server with Express app as middleware
-  server.applyMiddleware({ app });
-
-  // log where we can go to test out GQL API
-  
-// };
-
-// initialize the apollo server
-// startApolloServer();
+// integrate our Apollo server with Express app as middleware
+server.applyMiddleware({ app });
 
 // middleware parsing
 app.use(express.urlencoded({ extended: false }));
@@ -53,13 +32,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
-
-// app.use(routes);
-
-//get all
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
 
 db.once("open", () => {
   app.listen(PORT, () => {
