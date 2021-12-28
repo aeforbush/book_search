@@ -11,6 +11,7 @@
 Book Search is an application where users can search books and created a library of personal favorites upon signing up and signing into the applicaiton. Users can add and delete books from their personal library.   
 
 ## Table of Contents
+* [Image]()
 * [Installation](#Installation)
 * [Authors](#Authors)
 * [GitHub](#GitHub)
@@ -27,4 +28,4 @@ Book Search is an application where users can search books and created a library
 * Aimee Forbush
 
 ## GitHub 
-* GitHub: (https://github.com/aeforbush/react_portfolio)
+* GitHub: (https://github.com/aeforbush/book_search.git)
