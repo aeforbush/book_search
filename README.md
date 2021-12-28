@@ -11,11 +11,14 @@
 Book Search is an application where users can search books and created a library of personal favorites upon signing up and signing into the applicaiton. Users can add and delete books from their personal library.   
 
 ## Table of Contents
-* [Image] (img width="1134" alt="Screen Shot 2021-12-28 at 11 18 33 AM" src="https://user-images.githubusercontent.com/87487655/147596147-7db0c867-e634-4af0-9c95-ee537d7e7516.png")
+* [Image](#Image)
 * [Installation](#Installation)
 * [Authors](#Authors)
 * [GitHub](#GitHub)
 * [License](#License)
+
+## Image
+"https://user-images.githubusercontent.com/87487655/147596147-7db0c867-e634-4af0-9c95-ee537d7e7516.png"
 
 ## Installation
 
